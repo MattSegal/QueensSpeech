@@ -1,0 +1,109 @@
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond);
+@font-face {
+  font-family: 'abril-fat-face';
+  src: url("../fonts/abril-fat-face-regular.otf"); }
+
+h1, nav, nav > a {
+  font-family: 'abril-fat-face';
+  color: #222; }
+
+p, a {
+  font-family: 'EB Garamond',Georgia,Times,serif;
+  color: #222;
+  font-weight: 400; }
+
+body {
+  background-color: #ffffff;
+  font-size: 10px; }
+
+/* HEADER  */
+header {
+  height: 7em;
+  line-height: 7em;
+  background-color: white; }
+  header h1 {
+    float: left;
+    padding: 0 0 0 1em;
+    font-size: 3em; }
+  header nav {
+    float: right;
+    font-size: 1.6em;
+    padding: 0 2.3em 0 0; }
+    header nav a {
+      text-decoration: none; }
+      header nav a:hover {
+        text-decoration: underline; }
+
+.hero-image {
+  background-color: #f4f4f4;
+  height: 45em;
+  width: 100%;
+  background-image: url(../img/queen.jpg);
+  background-size: cover;
+  background-position: center; }
+
+.content {
+  min-height: 20em;
+  padding: 7em 0;
+  background-color: #ffffff; }
+  .content h1 {
+    width: 60%;
+    max-width: 500px;
+    margin: 0 auto 1em auto;
+    padding: 0 0 0.5em 0;
+    text-align: center;
+    font-size: 3em;
+    border-bottom: 1px solid #ccc; }
+  .content p {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto 2em auto;
+    text-align: left;
+    line-height: 1.7em;
+    font-size: 1.8em;
+    letter-spacing: 0.3px; }
+    .content p:nth-last-child(1) {
+      margin-bottom: 1em; }
+
+.alternate {
+  background-color: #f4f4f4; }
+
+footer {
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 5em 0;
+  background-color: #333; }
+  footer h1 {
+    width: 60%;
+    max-width: 500px;
+    margin: 0 auto 1.5em auto;
+    padding: 0 0 1em 0;
+    text-align: center;
+    font-size: 3em;
+    color: #fff;
+    border-bottom: 1px solid #fff; }
+  footer p {
+    margin: 0 auto 2.5em auto;
+    text-align: center;
+    font-size: 1.8em;
+    color: #fff; }
+
+@media (max-height: 475px), (max-width: 500px) {
+  body {
+    font-size: 7px; }
+  header h1 {
+    text-align: center; } }
+
+@media (min-width: 1000px) {
+  body {
+    width: 800px;
+    margin: 0 auto;
+    box-shadow: 2px 0px 40px 2px #333;
+    background-color: #fff; }
+  header {
+    height: 10em;
+    line-height: 10em; }
+    header h1 {
+      padding: 0 0 0 1.5em; }
+    header nav {
+      padding: 0 3em 0 0; } }

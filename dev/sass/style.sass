@@ -1,0 +1,125 @@
+// Definitions and mixins
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond);
+@font-face
+    font-family: 'abril-fat-face'
+    src: url('../fonts/abril-fat-face-regular.otf')
+
+$bg-light: #ffffff
+$bg-grey: #f4f4f4
+$bg-dark: #333
+
+$chris-image: url(../img/queen.jpg)
+
+h1, nav, nav>a
+    font-family: 'abril-fat-face'
+    color: #222
+
+p, a
+    font-family: 'EB Garamond',Georgia,Times,serif
+    // font-family: 'PT Serif',Georgia,Times,serif
+    color: #222
+    font-weight: 400
+
+body 
+    background-color: $bg-light
+    font-size: 10px
+
+*
+    //outline: red 1px solid
+
+/* HEADER  */
+header
+    height: 7em
+    line-height: 7em
+    background-color: white
+    h1
+        float: left
+        padding: 0 0 0 1em
+        font-size: 3em
+    nav
+        float: right
+        font-size: 1.6em
+        padding: 0 2.3em 0 0
+        a
+            text-decoration: none
+            &:hover
+                text-decoration: underline
+
+.hero-image
+    background-color: $bg-grey
+    height: 45em
+    width: 100%
+    background-image: $chris-image
+    background-size: cover
+    background-position: center
+    
+.content
+    min-height: 20em
+    padding: 7em 0
+    background-color: $bg-light
+    h1 
+        width: 60%
+        max-width: 500px
+        margin: 0 auto 1em auto
+        padding: 0 0 0.5em 0
+        text-align: center
+        font-size: 3em
+        border-bottom: 1px solid #ccc
+    p
+        width: 80%
+        max-width: 600px
+        margin: 0 auto 2em auto
+        text-align: left
+        line-height: 1.7em
+        font-size: 1.8em
+        letter-spacing: 0.3px
+        &:nth-last-child(1)
+            margin-bottom: 1em
+
+
+.alternate
+    background-color: $bg-grey
+
+footer
+    box-sizing: border-box
+    height: 100vh
+    padding: 5em 0
+    background-color: $bg-dark
+    h1 
+        width: 60%
+        max-width: 500px
+        margin: 0 auto 1.5em auto
+        padding: 0 0 1em 0
+        text-align: center
+        font-size: 3em
+        color: #fff
+        border-bottom: 1px solid #fff
+    p
+        margin: 0 auto 2.5em auto
+        text-align: center
+        font-size: 1.8em
+        color: #fff
+
+@media (max-height: 475px), (max-width: 500px)
+    body
+        font-size: 7px
+
+    header h1
+        text-align: center
+
+@media (min-width: 1000px)
+    body
+        width: 800px
+        margin: 0 auto
+        box-shadow: 2px 0px 40px 2px #333
+        background-color: #fff
+    header
+        height: 10em
+        line-height: 10em
+        h1
+            padding: 0 0 0 1.5em
+        nav
+            padding: 0 3em 0 0
+
+
+ 
