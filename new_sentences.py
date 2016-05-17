@@ -1,17 +1,31 @@
-from repository import Repository
 import numpy as np
+import os
+import os.path
+import sys
+import cPickle as pickle
+
+if not os.path.isfile('network.py'):
+    sys.path.append(os.path.normpath('./queens_speech'))
+
+if  not os.path.isfile('network.py') and not os.path.isfile(os.path.normpath('./queens_speech/network.py')):
+    raise Exception("Network library could not be found")
+
 from layer import *
 from network import * 
 
-
 vocab = [u'all', u'set', u'just', u'show', u'being', u'money', u'over', u'both', u'years', u'four', u'through', u'during', u'go', u'still', u'children', u'before', u'police', u'office', u'million', u'also', u'less', u'had', u',', u'including', u'should', u'to', u'only', u'going', u'under', u'has', u'might', u'do', u'them', u'good', u'around', u'get', u'very', u'big', u'dr.', u'game', u'every', u'know', u'they', u'not', u'world', u'now', u'him', u'school', u'several', u'like', u'did', u'university', u'companies', u'these', u'she', u'team', u'found', u'where', u'right', u'says', u'people', u'house', u'national', u'some', u'back', u'see', u'street', u'are', u'year', u'home', u'best', u'out', u'even', u'what', u'said', u'for', u'federal', u'since', u'its', u'may', u'state', u'does', u'john', u'between', u'new', u';', u'three', u'public', u'?', u'be', u'we', u'after', u'business', u'never', u'use', u'here', u'york', u'members', u'percent', u'put', u'group', u'come', u'by', u'$', u'on', u'about', u'last', u'her', u'of', u'could', u'days', u'against', u'times', u'women', u'place', u'think', u'first', u'among', u'own', u'family', u'into', u'each', u'one', u'down', u'because', u'long', u'another', u'such', u'old', u'next', u'your', u'market', u'second', u'city', u'little', u'from', u'would', u'few', u'west', u'there', u'political', u'two', u'been', u'.', u'their', u'much', u'music', u'too', u'way', u'white', u':', u'was', u'war', u'today', u'more', u'ago', u'life', u'that', u'season', u'company', u'-', u'but', u'part', u'court', u'former', u'general', u'with', u'than', u'those', u'he', u'me', u'high', u'made', u'this', u'work', u'up', u'us', u'until', u'will', u'ms.', u'while', u'officials', u'can', u'were', u'country', u'my', u'called', u'and', u'program', u'have', u'then', u'is', u'it', u'an', u'states', u'case', u'say', u'his', u'at', u'want', u'in', u'any', u'as', u'if', u'united', u'end', u'no', u')', u'make', u'government', u'when', u'american', u'same', u'how', u'mr.', u'other', u'take', u'which', u'department', u'--', u'you', u'many', u'nt', u'day', u'week', u'play', u'used', u"'s", u'though', u'our', u'who', u'yesterday', u'director', u'most', u'president', u'law', u'man', u'a', u'night', u'off', u'center', u'i', u'well', u'or', u'without', u'so', u'time', u'five', u'the', u'left']
 
-
-
 def generate_sentence(number_of_words):
+    # try find the network text file
+    if os.path.isfile('net.txt'):
+        net_file = 'net.txt'
+    elif os.path.isfile(os.path.normpath('./queens_speech/net.txt')):
+        net_file = os.path.normpath('./queens_speech/net.txt')
+    else:
+        raise Exception("Words database could not be found")
 
-    repo = Repository('words.db')
-    net = repo.load_object('network')
+    with open(net_file,'r') as net_data:
+        net = pickle.loads(net_data.read())
 
     input_vector = np.zeros((1,250*3))
     expansion_matrix = np.eye(250)
@@ -52,13 +66,13 @@ def generate_sentence(number_of_words):
 
     # Clean up a bit    
     sentences = speech.split("? ")
-    sentences = [sentence[0].upper()+sentence[1:] for sentence in sentences]
+    sentences = [sentence[0].upper()+sentence[1:] for sentence in sentences if len(sentence) > 2]
     speech = ""
     for sentence in sentences:
         speech += sentence + "? "
 
     sentences = speech.split(". ")
-    sentences = [sentence[0].upper()+sentence[1:] for sentence in sentences]
+    sentences = [sentence[0].upper()+sentence[1:] for sentence in sentences if len(sentence) > 2]
     speech = ""
     for sentence in sentences:
         speech += sentence + ". "

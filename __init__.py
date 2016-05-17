@@ -1,5 +1,5 @@
 from flask import Flask, Blueprint, render_template, request
-import new_sentences
+from new_sentences import *
 
 queens_speech = Blueprint('queens_speech', __name__,
             template_folder='templates', 
@@ -14,7 +14,7 @@ def  words():
         num_words = int(words_arg) if 3 < int(words_arg) < 400 else default_num_words
     except:
         num_words = default_num_words
-    generated_words = new_sentences.generate_sentence(num_words)
+    generated_words = generate_sentence(num_words)
     return render_template('queens_speech.html',words=generated_words)
 
 
