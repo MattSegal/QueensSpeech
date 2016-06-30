@@ -1,0 +1,45 @@
+{
+    
+    "dirs" : {
+        "deployable" : [
+            "static",
+            "css",
+            "js",
+            "img",
+            "fonts",
+            "templates",
+            "layer",
+            "weights"
+        ],
+        "non-deployable" : [
+
+        ]
+    },
+
+    "files" : {
+        "file_types" : [
+            "py",
+            "js",
+            "arr",
+            "html",
+            "ico",
+            "jpg",
+            "jpeg",
+            "png",
+            "gif",
+            "css",
+            "svg",
+            "eot",
+            "otf",
+            "ttf",
+            "woff"
+        ],
+        "deployable" : [
+
+        ],
+        "non-deployable" : [
+            "gulpfile.js",
+            "save_weights.py"
+        ]
+    }
+}
