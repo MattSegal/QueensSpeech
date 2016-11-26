@@ -10,7 +10,7 @@ window.onload = function loadSharpImages()
     // Quit early if older browser (e.g. IE 8).
     if (!('addEventListener' in window)) return
     var preLoadBackground = document.querySelector(".pre-load-hero-image")
-    var backgroundSourceFile = "/static/img/queen.jpg"
+    var backgroundSourceFile = "{{url_for('static',filename='img/queen.jpg')}}"
     var backgroundImage = new Image();
     backgroundImage.src = backgroundSourceFile
     backgroundImage.onload = function() 
