@@ -9,7 +9,8 @@
             "fonts",
             "templates",
             "layer",
-            "weights"
+            "weights",
+            "app"
         ],
         "non-deployable" : [
 
