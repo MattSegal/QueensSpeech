@@ -4,10 +4,16 @@ html(lang="en")
         meta(charset="utf-8")
         meta(name = "viewport" content = "width=device-width,initial-scale=1") 
         link(rel="stylesheet", type='text/css', 
-            href="{{url_for('queens_speech.static',filename='css/reset.css')}}")
+            href="{{url_for('static',filename='css/reset.css')}}")
         link(rel="stylesheet", type='text/css', 
-            href="{{url_for('queens_speech.static',filename='css/style.css')}}")
+            href="{{url_for('static',filename='css/style.css')}}")
         title Hear the Queen
+        style.
+            .pre-load-hero-image
+            {
+                background-image: url("{% include "blur_image.html" %}");
+                z-index: -1;
+            }
 
     body
         header
@@ -15,6 +21,7 @@ html(lang="en")
             nav
                 a(href="#contact") Contact
         .hero-image
+            .pre-load-hero-image
         .content
             h1 Today's Public Address
             p.
@@ -32,3 +39,25 @@ html(lang="en")
             p The Queen
             p elizabeth@england.uk
             p 0431 832 123
+
+        script.
+            // when bg image loaded, swap out full image
+            window.onload = function loadSharpImages() 
+            {
+                // Quit early if older browser (e.g. IE 8).
+                if (!('addEventListener' in window)) return
+                var preLoadBackground = document.querySelector(".pre-load-hero-image")
+                var backgroundSourceFile = "/static/img/queen.jpg"
+                var backgroundImage = new Image();
+                backgroundImage.src = backgroundSourceFile
+                backgroundImage.onload = function() 
+                {
+                    function fadeOut(i) 
+                    {
+                        preLoadBackground.style.opacity = 1 - 0.01*i
+                        if (i >= 100) return
+                        setTimeout(function(){fadeOut(i+1)},1)
+                    }
+                    fadeOut(0)
+                }
+            };

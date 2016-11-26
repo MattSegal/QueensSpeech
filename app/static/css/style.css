@@ -34,7 +34,7 @@ header {
       header nav a:hover {
         text-decoration: underline; }
 
-.hero-image {
+.hero-image, .pre-load-hero-image {
   background-color: #f4f4f4;
   height: 45em;
   width: 100%;
