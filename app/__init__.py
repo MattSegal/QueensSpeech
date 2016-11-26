@@ -3,7 +3,7 @@ from new_sentences import *
 
 app = Flask(__name__)
 
-@app.route('/words/')
+@app.route('/')
 def  words():
     default_num_words = 200
     try:
